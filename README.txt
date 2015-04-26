@@ -1,12 +1,12 @@
-==============================================================================================================
+=============================================================================================
 Getting and Cleaning Data Course Project README
-===============================================================================================================
+=============================================================================================
 Crystal Franks
 April 26, 2015
 cfranks@newfield.com
-==============================================================================================================
+=============================================================================================
 Description:
-==============================================================================================================
+=============================================================================================
 This repository contains the script run_analysis.
 
 This script reads the data collected from the accelerometers from the Samsung 
@@ -24,14 +24,13 @@ was obtained:
 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
 
-==============================================================================================================
+==============================================================================================
 Requirements:
-==============================================================================================================
-You will need to install the R package: dplyr & tidyr
+==============================================================================================
+You will need to install the R packages: dplyr & tidyr
 
 Please check that the UCI HAR Dataset folder is in your working directory 
 before running this script. Keep the folder name as UCI HAR Dataset as well 
 as the orignal filenames when downloaded. The data can be downloaded from here:
 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
-
