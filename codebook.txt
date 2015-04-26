@@ -1,117 +1,56 @@
-==================================================================
+==============================================================================================================
 Codebook – TidyData
-==================================================================
+==============================================================================================================
 Crystal Franks
-4/23/2015
-==================================================================
+4/26/2015
+==============================================================================================================
 
-The raw data was downloaded from the Human Activity Recognition Using Smartphones Dataset and transformed into a tidy data set of the average of the mean values and standard deviations for each measurement for each activity and each subject.
 
-The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix ‘t’ to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz.
 
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitudese three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag).
-
-Finally a Fast Fourier Transform (FFT) was applied to somese signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the ‘f’ to indicate frequency domain signals).
-These signals were used to estimate variables feature vector for each pattern:
-‘-XYZ’ is used to denote 3-axial signals in the X, Y and Z directions.
-
-The set of variables that were estimated from these signals are:
-•	mean(): Mean value
-•	std(): Standard deviation
-
-Check the README.txt file for further details about this dataset from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#
-
-================================================================== 
+==============================================================================================================
 Data Dictionary
-==================================================================
+==============================================================================================================
 
-subject_id	Identifies the subject who performed the activity 
-			0	     	 Part of test group
-			1 to 30	      	Subject ID # for those participating in the train group
+subject_id		Identifies the subject who performed the activity 
+				0	     	 Part of test group
+				1 to 30	      	Subject ID # for those participating in the train group
 
-activity_names	Describes the performed the activity 
-			WALKING
-			WALKING_UPSTAIRS
-			WALKING_DOWNSTAIRS
-			SITTING
-			STANDING
-			LAYING
+activity_name		Describes the performed the activity 
+				WALKING
+				WALKING_UPSTAIRS
+				WALKING_DOWNSTAIRS
+				SITTING
+				STANDING
+				LAYING
 
-The following variables are averages of the measurement described
- 
-tBodyAcc-mean()-X		
-tBodyAcc-mean()-Y		
-tBodyAcc-mean()-Z		
-tGravityAcc-mean()-X		
-tGravityAcc-mean()-Y		
-tGravityAcc-mean()-Z		
-tBodyGyro-mean()-X		
-tBodyGyro-mean()-Y		
-tBodyGyro-mean()-Z		
-tBodyGyroJerk-mean()-X	
-tBodyGyroJerk-mean()-Y	
-tBodyGyroJerk-mean()-Z	
-tBodyAccMag-mean()		
-tGravityAccMag-mean()		
-tBodyAccJerkMag-mean()	
-tBodyGyroMag-mean()		
-tBodyGyroJerkMag-mean()	
-fBodyAcc-mean()-X		
-fBodyAcc-mean()-Y		
-fBodyAcc-mean()-Z		
-fBodyAcc-meanFreq()-X		
-fBodyAcc-meanFreq()-Y		
-fBodyAcc-meanFreq()-Z		
-fBodyAccJerk-mean()-X		
-fBodyAccJerk-mean()-Y		
-fBodyAccJerk-mean()-Z		
-fBodyAccJerk-meanFreq()-X
-fBodyAccJerk-meanFreq()-Y
-fBodyAccJerk-meanFreq()-Z
-fBodyGyro-mean()-X
-fBodyGyro-mean()-Y
-fBodyGyro-mean()-Z
-fBodyGyro-meanFreq()-X
-fBodyGyro-meanFreq()-Y
-fBodyGyro-meanFreq()-Z
-fBodyAccMag-mean()
-fBodyAccMag-meanFreq()
-fBodyBodyAccJerkMag-mean()
-fBodyBodyAccJerkMag-meanFreq()	
-fBodyBodyGyroMag-mean()		
-fBodyBodyGyroMag-meanFreq()		
-fBodyBodyGyroJerkMag-mean()		
-fBodyBodyGyroJerkMag-meanFreq()		
-tBodyAcc-std()-X		
-tBodyAcc-std()-Y		
-tBodyAcc-std()-Z		
-tGravityAcc-std()-X		
-tGravityAcc-std()-Y		
-tGravityAcc-std()-Z		
-tBodyAccJerk-std()-X		
-tBodyAccJerk-std()-Y		
-tBodyAccJerk-std()-Z		
-tBodyGyro-std()-X		
-tBodyGyro-std()-Y		
-tBodyGyro-std()-Z		
-tBodyGyroJerk-std()-X		
-tBodyGyroJerk-std()-Y		
-tBodyGyroJerk-std()-Z		
-tBodyAccMag-std()		
-tGravityAccMag-std()		
-tBodyAccJerkMag-std()		
-tBodyGyroMag-std()		
-tBodyGyroJerkMag-std()		
-fBodyAcc-std()-X		
-fBodyAcc-std()-Y		
-fBodyAcc-std()-Z		
-fBodyAccJerk-std()-X		
-fBodyAccJerk-std()-Y		
-fBodyAccJerk-std()-Z		
-fBodyGyro-std()-X		
-fBodyGyro-std()-Y		
-fBodyGyro-std()-Z		
-fBodyAccMag-std()		
-fBodyBodyAccJerkMag-std()		
-fBodyBodyGyroMag-std()		
-fBodyBodyGyroJerkMag-std() 
+measurement_name	Describes the measurement
+			The features selected for this database come from the accelerometer and gyroscope 
+			3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix ‘t’ 
+			to denote time) were captured at a constant rate of 50 Hz. Then they were filtered 
+			using a median filter and a 3rd order low pass Butterworth filter with a corner 
+			frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then 			
+			separated into body and gravity acceleration signals (tBodyAcc-XYZ and 
+			tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency 
+			of 0.3 Hz.
+
+			Subsequently, the body linear acceleration and angular velocity were derived in time 
+			to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitudese 
+			three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, 
+			tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag).
+
+			Finally a Fast Fourier Transform (FFT) was applied to somese signals producing 
+			fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, 
+			fBodyGyroJerkMag. (Note the ‘f’ to indicate frequency domain signals).
+			These signals were used to estimate variables feature vector for each pattern:
+			‘-XYZ’ is used to denote 3-axial signals in the X, Y and Z directions.
+
+			The set of variables that were estimated from these signals are:
+			•	mean(): Mean value
+			•	std(): Standard deviation
+
+			Check the README.txt file for further details about this dataset from 
+			http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#
+
+
+mean			The average of the measurement identified in the measurement_name for the subject and 
+			activity decribed using the sibject_id and the activity_name

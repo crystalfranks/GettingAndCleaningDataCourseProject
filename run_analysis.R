@@ -12,6 +12,7 @@
 
 # Load the necessary libraries
         library(dplyr)
+        library(tidyr)
 
 # Load the datasets
         # Read in train dataset, sactivity labels, and subject ids
@@ -31,27 +32,33 @@
 # Add descriptive labels and variable names
         # Add descriptive activity names to name the activities in the data set
         activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt"
-                                      , col.names = c("activity_labels","activity_names"))
+                                      , col.names = c("activity_labels","activity_name"))
         combined <- merge(combined, activity_labels, all = TRUE)
         
         # Appropriately labels the data set with descriptive variable names. 
         features <- read.table("./UCI HAR Dataset/features.txt")
-        names(combined) <- c("activity_labels", as.vector(features[,2]),"subject_id","activity_names")
+        names(combined) <- c("activity_labels", as.vector(features[,2]),"subject_id","activity_name")
 
 
 # Extracts only the measurements on the mean and standard deviation for each measurement. 
         filtered <- combined[,c(grep("subject_id",names(combined))
-                                , grep("activity_names",names(combined))
+                                , grep("activity_name",names(combined))
                                 , grep("mean()", names(combined))
                                 , grep("std()",names(combined)))]
 
 # Summarize the data with the average of each variable for each activity and each subject and return a tidy data set
-        TidyData <- group_by(filtered,subject_id,activity_names) %>% summarise_each(funs(mean))
+
+        TidyData <-  filtered %>% 
+                        gather(measurement_name, measurement, -subject_id, -activity_name) %>% # transform into narrow format
+                        group_by(subject_id, activity_name, measurement_name) %>% # group by subject, activity, and name
+                        summarise(mean = mean(measurement)) # summarize using the function mean
+
 
 # Unload the libraries
         detach("package:dplyr")
+        detach("package:tidyr")
 
-# Write the data table to a file and view it
+# Write the Narrow formatted table to a file and view it
 write.table(TidyData, "TidyData.txt",row.name=FALSE)
 data <- read.table("TidyData.txt", header = TRUE) 
 View(data)
