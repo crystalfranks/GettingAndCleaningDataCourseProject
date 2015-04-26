@@ -1,12 +1,8 @@
 ==============================================================================================================
-Codebook – TidyData
+Codebook â€“ TidyData
 ==============================================================================================================
 Crystal Franks
 4/26/2015
-==============================================================================================================
-
-
-
 ==============================================================================================================
 Data Dictionary
 ==============================================================================================================
@@ -25,7 +21,7 @@ activity_name		Describes the performed the activity
 
 measurement_name	Describes the measurement
 			The features selected for this database come from the accelerometer and gyroscope 
-			3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix ‘t’ 
+			3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix â€˜tâ€™ 
 			to denote time) were captured at a constant rate of 50 Hz. Then they were filtered 
 			using a median filter and a 3rd order low pass Butterworth filter with a corner 
 			frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then 			
@@ -40,17 +36,17 @@ measurement_name	Describes the measurement
 
 			Finally a Fast Fourier Transform (FFT) was applied to somese signals producing 
 			fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, 
-			fBodyGyroJerkMag. (Note the ‘f’ to indicate frequency domain signals).
+			fBodyGyroJerkMag. (Note the â€˜fâ€™ to indicate frequency domain signals).
 			These signals were used to estimate variables feature vector for each pattern:
-			‘-XYZ’ is used to denote 3-axial signals in the X, Y and Z directions.
+			â€˜-XYZâ€™ is used to denote 3-axial signals in the X, Y and Z directions.
 
 			The set of variables that were estimated from these signals are:
-			•	mean(): Mean value
-			•	std(): Standard deviation
+			â€¢	mean(): Mean value
+			â€¢	std(): Standard deviation
 
 			Check the README.txt file for further details about this dataset from 
 			http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#
 
 
 mean			The average of the measurement identified in the measurement_name for the subject and 
-			activity decribed using the sibject_id and the activity_name
+			activity decribed in the subject_id and the activity_name
