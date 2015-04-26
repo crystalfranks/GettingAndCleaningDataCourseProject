@@ -11,8 +11,10 @@
 
 
 # Load the necessary libraries
-        library(dplyr)
         library(tidyr)
+        # suppress start up messages for dplyr package
+        msg.out <- capture.output(suppressMessages(library(dplyr)))
+                
 
 # Load the datasets
         # Read in train dataset, sactivity labels, and subject ids
@@ -48,19 +50,23 @@
 
 # Summarize the data with the average of each variable for each activity and each subject and return a tidy data set
 
-        TidyData <-  filtered %>% 
-                        gather(measurement_name, measurement, -subject_id, -activity_name) %>% # transform into narrow format
-                        group_by(subject_id, activity_name, measurement_name) %>% # group by subject, activity, and name
-                        summarise(mean = mean(measurement)) # summarize using the function mean
-
+        TidyData <-  filtered %>%
+                        # transform into narrow format
+                        gather(measurement_name, measurement, -subject_id, -activity_name) %>% 
+                        # group by subject, activity, and name        
+                        group_by(subject_id, activity_name, measurement_name) %>% 
+                        # summarize using the function mean
+                        summarise(mean_value = mean(measurement)) %>% 
+                        # seperates measurement name description into 3 columns
+                        separate(col = measurement_name, into = c("measurement_name", "type", "direction")) 
 
 # Unload the libraries
         detach("package:dplyr")
         detach("package:tidyr")
+        
+# Remove uneccesary datasets and variables
+        rm(activity_labels, combined, features, filtered, gathered, test, train, msg.out)        
 
-# Write the Narrow formatted table to a file and view it
+# Write the narrow formatted table to a file and view it
 write.table(TidyData, "TidyData.txt",row.name=FALSE)
-data <- read.table("TidyData.txt", header = TRUE) 
-View(data)
-
-
+View(read.table("TidyData.txt", header = TRUE))
